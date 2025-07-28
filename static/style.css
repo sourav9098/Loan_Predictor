@@ -1,0 +1,154 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+body {
+    background-color: #29d4c6;  /* Light gray background */
+    color: #333;  /* Dark text for readability */
+    text-align: center;
+}
+
+/* Navigation Bar */
+nav {
+    background: #26967d; /* Dark blue-gray */
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    background: #26bb70; /* Subtle hover effect */
+    border-radius: 5px;
+}
+
+/* Sections */
+section {
+    padding: 60px 50px;
+    max-width: 1000px;
+    margin: 50px auto;
+    background: rgb(153, 224, 37);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+section li {
+    display: flex;
+    align-items: left;
+}
+
+h2 {
+    color: #35424a;
+    margin-bottom: 10px;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input[type="range"] {
+    width: 80%;
+    margin: 5px 0;
+}
+
+span {
+    font-weight: bold;
+    color: #35424a;
+}
+
+/* Dropdown */
+select {
+    padding: 8px;
+    width: 50%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Button */
+button {
+    padding: 10px 15px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+/* Loan Approval Result */
+h3 {
+    margin-top: 20px;
+    font-size: 22px;
+    color: #2c3e50;
+    padding: 10px;
+    background: #b4ce1f;
+    border-radius: 5px;
+}
+
+/* Contact Section */
+#contact {
+    background: #35424a;
+    color: white;
+    padding: 40px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+#contact p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    select {
+        width: 80%;
+    }
+
+    button {
+        width: 80%;
+    }
+}

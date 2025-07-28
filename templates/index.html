@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Approval Prediction</title>
+    <link rel="stylesheet" href="\static\style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#check-status">Check Status</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h2>Welcome to Loan Approval Predictor</h2>
+       
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h1>Loan Approval Process</h1>
+    <ol>
+        <li><strong>Application Submission</strong> – The borrower submits a loan application with personal, financial, and loan details.</li>
+        <li><strong>Documentation Review</strong> – The lender verifies documents (e.g., ID, income proof, credit history).</li>
+        <li><strong>Credit Check</strong> – The borrower’s credit score and report are evaluated for repayment reliability.</li>
+        <li><strong>Underwriting</strong> – The lender assesses risk, debt-to-income ratio, collateral (if any), and loan terms.</li>
+        <li><strong>Approval/Rejection</strong> – Based on the assessment, the loan is approved, denied, or modified.</li>
+        <li><strong>Disbursement</strong> – Approved funds are released as a lump sum or in installments.</li>
+    </ol>
+    <p><em>The process may vary depending on the lender, loan type, and borrower profile.</em></p>
+    </section>
+
+    <!-- Prediction Form Section -->
+    <section id="check-status">
+        <h2>Check Your Loan Approval Status</h2>
+        <form action="/predict" method="post">
+            
+            <label for="gross_income">Gross Income</label>
+            <input type="range" name="gross_income" id="gross_income" min="0" max="500000" value="0" oninput="updateValue(this.value, 'incomeValue')">
+            <span id="incomeValue">0</span>
+
+            <label for="tenure">Tenure (Months)</label>
+            <input type="range" name="tenure" id="tenure" min="6" max="360" value="6" step="6" oninput="updateValue(this.value, 'tenureValue')">
+            <span id="tenureValue">6</span>
+
+            <label for="loan_amount">Loan Amount</label>
+            <input type="range" name="loan_amount" id="loan_amount" min="0" max="500000" value="0" oninput="updateValue(this.value, 'loanValue')">
+            <span id="loanValue">0</span>
+
+            <label for="interest_rate">Interest Rate (%)</label>
+            <input type="range" name="interest_rate" id="interest_rate" min="0" max="20" step="0.1" value="0" oninput="updateValue(this.value, 'rateValue')">
+            <span id="rateValue">0</span>
+
+            <label for="other_emis">Other EMIs</label>
+            <input type="range" name="other_emis" id="other_emis" min="0" max="100000" value="0" oninput="updateValue(this.value, 'emiValue')">
+            <span id="emiValue">0</span>
+
+            <label for="credit_score">Credit Score</label>
+            <input type="range" name="credit_score" id="credit_score" min="300" max="850" value="300" oninput="updateValue(this.value, 'creditValue')">
+            <span id="creditValue">300</span>
+
+            <label for="age">Age</label>
+            <input type="range" name="age" id="age" min="18" max="70" value="18" oninput="updateValue(this.value, 'ageValue')">
+            <span id="ageValue">18</span>
+
+            <label for="employment_type">Employment Type</label>
+            <select name="employment_type">
+                <option value="0">Salaried</option>
+                <option value="1">Self-Employed</option>
+            </select>
+
+            <button type="submit">Check Approval</button>
+        </form>
+
+        <!-- Loan Approval Result Display -->
+        {% if prediction_result %}
+            <h2>Loan Approval Status: {{ prediction_result }}</h2>
+        {% endif %}
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: sourav123@gmail.com</p>
+        <p>Phone:8597569608</p>
+    </section>
+
+    <script>
+        function updateValue(val, id) {
+            document.getElementById(id).innerText = val;
+        }
+    </script>
+
+</body>
+</html>
