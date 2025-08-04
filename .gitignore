@@ -1,2 +1,5 @@
-/.venv
-/loan_data.csv
+.venv/
+loan_data.csv/
+__pycache__/
+*.pkl
+.env

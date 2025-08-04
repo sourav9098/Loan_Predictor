@@ -1,17 +1,15 @@
-from flask import Flask, render_template, request
+from flask import Blueprint, render_template, request
 import numpy as np
-import joblib  
 
-app = Flask(__name__)
+from .model import load_model,predict_crop
+main=Blueprint('main',__name__)
+model=load_model()
 
-# Load the trained model
-model = joblib.load("best_home_loan_model.pkl")
-
-@app.route('/')
+@main.route('/')
 def home():
     return render_template('index.html')
 
-@app.route('/predict', methods=['POST'])
+@main.route('/predict', methods=['POST'])
 def predict():
     try:
         # Extract form values
@@ -29,7 +27,7 @@ def predict():
                               credit_score, age, employment_type, loan_amount]])
 
         # Make prediction
-        prediction = model.predict(features)[0]
+        prediction = predict_crop(model,features)
         result = "✅ Loan Approved" if prediction == 1 else "❌ Loan Not Approved"
 
         return render_template('index.html', prediction_result=result)
@@ -37,5 +35,3 @@ def predict():
     except Exception as e:
         return f"Error: {str(e)}"
 
-if __name__ == '__main__':
-    app.run(debug=True)
