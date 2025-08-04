@@ -8,8 +8,7 @@ loan_data.csv
 __pycache__/
 *.py[cod]
 
-# Pickle model files
-*.pkl
+
 
 # Environment variable files
 .env
