@@ -1,5 +1,24 @@
+# Python virtual environment
 .venv/
-loan_data.csv/
+
+# Local dataset files
+loan_data.csv
+
+# Python cache files
 __pycache__/
+*.py[cod]
+
+# Pickle model files
 *.pkl
+
+# Environment variable files
 .env
+
+# VS Code editor settings (optional)
+.vscode/
+
+# macOS system file (optional)
+.DS_Store
+
+# Windows system file (optional)
+Thumbs.db
